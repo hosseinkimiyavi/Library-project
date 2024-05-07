@@ -1,10 +1,28 @@
 import React, { useState } from 'react'
-import {books} from "../constants/mockData"
+import {books as bookData} from "../constants/mockData"
 import Bookcard from './Bookcard'
 import Liked from './Liked';
+import Search from './Search';
 
 function Books() {
   const [liked,setliked] = useState ([]);
+  const[search,setsearch]=useState ([]);
+  const[books,setbooks]=useState (bookData);
+
+  const searchHandler =()=>{
+    if(search){
+      const newBooks= bookData.filter(book=>book.title.toLowerCase().includes(search))
+      setbooks(newBooks);
+    }
+    else{
+      setbooks(bookData)
+    }
+  }
+
+
+
+
+
 
 const likedHandler =(book , status)=>{
  if(status){
@@ -19,6 +37,7 @@ const likedHandler =(book , status)=>{
 
   return (
    <>
+   <Search search={search} setsearch={setsearch} searchHandler={searchHandler} />
    {/* for book list */}
    <div className='grid grid-cols-2 px-72 py-9 gap-y-6'>
 

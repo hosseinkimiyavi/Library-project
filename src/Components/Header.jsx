@@ -1,5 +1,6 @@
 import React from 'react'
 import 'font-awesome/css/font-awesome.min.css' 
+import Search from './Search'
 function Header({children}) {
   return (
     <>
@@ -9,13 +10,7 @@ function Header({children}) {
         <p className='font-semibold font-sans p-1 '>The second project by ReactJs</p>
     </div>
     {/* search bar */}
-    <div className='flex m-auto bg-sky-300 w-1/4 mt-28 ml-96 justify-between items-center p-3 rounded-2xl shadow-xl'>
-    <form action="#">
-      <input className='w-72 rounded-2xl bg-sky-300 focus:outline-none text-blue-900 font-sans
-       font-semibold ' type="text" placeholder='Search title' />
-      <button><i className='fa fa-search text-slate-400 pl-11'></i></button>
-    </form>
-    </div>
+    
     </header>
 
     {children}
